@@ -10,7 +10,10 @@ defmodule Core.Application do
     children = [
       # Starts a worker by calling: Core.Worker.start_link(arg)
       # {Core.Worker, arg},
+
+      {Registry, keys: :unique, name: Registry.ViaTest},
       {Core.Worker, []},
+      {EchoServer, []},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
