@@ -12,6 +12,7 @@ defmodule Core.Application do
       # {Core.Worker, arg},
 
       {Registry, keys: :unique, name: Registry.ViaTest},
+      {Registry, keys: :unique, name: :my_registry},
       {Core.Worker, []},
       {EchoServer, []},
     ]
