@@ -14,7 +14,7 @@ defmodule Core.Application do
       {Registry, keys: :unique, name: Registry.ViaTest},
       {Registry, keys: :unique, name: :my_registry},
       {Core.Worker, []},
-      {EchoServer, []},
+      {EchoServer, "server one"},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
