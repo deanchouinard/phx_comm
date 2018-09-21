@@ -42,3 +42,6 @@ config :ui, UiWeb.Endpoint,
   pubsub: [name: Nerves.PubSub, adapter: Phoenix.PubSub.PG2],
   code_reloader: false
 
+# config :mix, xref: :exclude [Core.Worker, {Core.Worker, :pop, 0}]
+
+

@@ -6,6 +6,8 @@ defmodule Core.MixProject do
       app: :core,
       version: "0.1.0",
       elixir: "~> 1.7",
+      #xref: [exclude: [Core.Worker]],
+      #xref: [exclude: [Core.Worker, {Core.Worker, :pop, 0}]],
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
