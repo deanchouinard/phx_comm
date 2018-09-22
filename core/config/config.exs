@@ -44,4 +44,9 @@ config :ui, UiWeb.Endpoint,
 
 # config :mix, xref: :exclude [Core.Worker, {Core.Worker, :pop, 0}]
 
+config :core, MySocket,
+  url: "ws://localhost:4000/socket/websocket",
+  serializer: Jason,
+  params: %{token: ""}
+  #  params: %{token: "12345"}
 

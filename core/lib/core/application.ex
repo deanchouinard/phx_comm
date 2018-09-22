@@ -15,6 +15,7 @@ defmodule Core.Application do
       {Registry, keys: :unique, name: :my_registry},
       {Core.Worker, []},
       {EchoServer, "server one"},
+      # {MySocket, []},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
