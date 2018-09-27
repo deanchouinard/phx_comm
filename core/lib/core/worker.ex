@@ -13,6 +13,10 @@ defmodule Core.Worker do
     GenServer.call(CW, :pop)
   end
 
+  def get_temp() do
+    GenServer.call(CW, :get_temp)
+  end
+
   # Server (callbacks)
 
   @impl true
@@ -25,6 +29,11 @@ defmodule Core.Worker do
     {:reply, head, tail}
   end
 
+  @impl true
+  def handle_call(:get_temp, _from, state) do
+    {:reply, 75, state}
+  end
+  
   @impl true
   def handle_cast({:push, item}, state) do
     {:noreply, [item | state]}

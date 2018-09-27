@@ -23,6 +23,10 @@ defmodule EchoServer do
     {:noreply, state}
   end
 
+  def handle_info({:humid, pid}, state) do
+    send(pid, 55)
+    {:noreply, state}
+  end
   # @impl GenServer
   #def handle_call(some_request, server_state) do
   # {:reply, some_request, server_state}

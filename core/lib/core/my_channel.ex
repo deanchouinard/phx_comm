@@ -1,7 +1,8 @@
 defmodule MyChannel do
   use PhoenixChannelClient
 
-  def handle_in("new_msg", payload, state) do
+  def handle_in("new_msg", %{"body" => body} = payload, state) do
+    IO.puts("Handle in: #{body}")
     {:noreply, state}
   end  
 
