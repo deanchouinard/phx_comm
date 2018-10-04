@@ -21,6 +21,12 @@ defmodule Core.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Core.Supervisor]
-    Supervisor.start_link(children, opts)
+    {:ok, pid} = Supervisor.start_link(children, opts)
+
+    # {:ok, channel} = PhoenixChannelClient.channel(MyChannel, socket: MySocket, topic: "room:lobby", caller: self())
+    {:ok, channel} = PhoenixChannelClient.channel(MyChannel, socket: MySocket, topic: "room:lobby")
+    MyChannel.join(%{})
+
+    {:ok, pid}
   end
 end

@@ -3,6 +3,9 @@ defmodule MyChannel do
 
   def handle_in("new_msg", %{"body" => body} = payload, state) do
     IO.puts("Handle in: #{body}")
+    IO.inspect state
+    
+    #    send(state.opts[:caller], {"new_msg", payload})
     {:noreply, state}
   end  
 

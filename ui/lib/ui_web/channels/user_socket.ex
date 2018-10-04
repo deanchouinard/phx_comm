@@ -3,6 +3,7 @@ defmodule UiWeb.UserSocket do
 
   ## Channels
   channel "room:*", UiWeb.RoomChannel
+  channel "rooms:*", UiWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

@@ -1,6 +1,9 @@
 defmodule UiWeb.RoomChannel do
   use Phoenix.Channel
 
+  def join("rooms:admin-lobby", _message, socket) do
+    {:ok, socket}
+  end
   def join("room:lobby", _message, socket) do
     {:ok, socket}
   end
@@ -12,4 +15,10 @@ defmodule UiWeb.RoomChannel do
     broadcast! socket, "new_msg", %{body: body}
     {:noreply, socket}
   end
+
+  def handle_in("new_msg", %{"test" => body}, socket) do
+    broadcast! socket, "new_msg", %{test: body}
+    {:noreply, socket}
+  end
 end
+
